@@ -31,8 +31,10 @@ public class Main {
 
         while (true) {
             printStart();
-
+            try {
             Weapons u = user.simpleGame();
+
+
             Weapons c = computer.simpleGame();
             System.out.println(" Выбор игрока " + u);
             System.out.println(" Выбор компьютера " + c);
@@ -55,6 +57,10 @@ public class Main {
             }
             gameCount++;
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             double statistic = Math.floor(((double) userBalls / (double) gameCount) * 100);
             int tie = Math.abs((userBalls + compBalls) - gameCount);
             System.out.println("------------------------------------------------------");
@@ -75,6 +81,7 @@ public class Main {
         while (true) {
             printStart2();
 
+            try {
             Weapons u = user.hardGame();
             Weapons c = computer.hardGame();
             System.out.println(" Выбор игрока " + u);
@@ -97,6 +104,9 @@ public class Main {
                     System.out.println("Что-то пошло не так");
             }
             gameCount++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             double statistic = Math.floor(((double) userBalls / (double) gameCount) * 100);
             int tie = Math.abs((userBalls + compBalls) - gameCount);
