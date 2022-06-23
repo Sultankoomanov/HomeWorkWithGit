@@ -7,6 +7,8 @@ public class Main {
     }
 
     private static void Run() {
+        User user = new User();
+
         printStart();
 
     }
