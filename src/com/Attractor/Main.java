@@ -3,7 +3,7 @@ package com.Attractor;
 public class Main {
 
     public static void main(String[] args) {
-        Run();
+            Run();
     }
 
     private static void Run() {
@@ -13,31 +13,42 @@ public class Main {
         int compBalls = 0;
         int gameCount = 0;
 
-        printStart();
-        Weapons Weapons;
+        while (true) {
+            printStart();
 
-        Weapons u = user.GameRules();
-        Weapons c = computer.GameRules();
-        System.out.println(u);
-        System.out.println(c);
+            Weapons u = user.GameRules();
+            Weapons c = computer.GameRules();
+            System.out.println(" Выбор игрока " + u);
+            System.out.println(" Выбор компьютера " + c);
 
-        int winner = u.force(c);
-        switch (winner) {
-            case 0:
-                System.out.println("Ничья!");
-                break;
-            case 1:
-                System.out.println("Победил ИГРОК!");
-                userBalls++;
-                break;
-            case 2:
-                System.out.println("Победил КОМПЬЮТЕР!");
-                compBalls++;
-                break;
+            int winner = u.force(c);
+            switch (winner) {
+                case 0:
+                    System.out.println("Ничья!");
+                    break;
+                case 1:
+                    System.out.println(u + " против " + c + " Победил ИГРОК!");
+                    userBalls++;
+                    break;
+                case 2:
+                    System.out.println(u + " против " + c + " Победил КОМПЬЮТЕР!");
+                    compBalls++;
+                    break;
+                default:
+                    System.out.println("Что-то пошло не так");
+            }
+            gameCount++;
+
+            double statistic = Math.floor(((double) userBalls / (double) gameCount) * 100);
+            int tie = Math.abs((userBalls + compBalls) - gameCount);
+            System.out.println("------------------------------------------------------");
+            System.out.println("Победа | Поражение | Ничья | Всего игр | Процент побед");
+            System.out.printf("%S      | %S         |   %S  |        %S   |    %S \n",
+                    userBalls, compBalls, tie, gameCount, statistic);
+            System.out.println("------------------------------------------------------");
         }
-        gameCount++;
-
     }
+
 
     private static void printStart() {
         System.out.println("Игра началась!!!");
