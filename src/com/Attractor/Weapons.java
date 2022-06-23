@@ -14,4 +14,17 @@ public enum Weapons {
     public String getValue() {
         return value;
     }
+    public int force(Weapons chooseWeapon) {
+        if (this == chooseWeapon)
+            return 0;
+        switch (this) {
+            case ROCK:
+                return (chooseWeapon == SCISSORS ? 1 : -1);
+            case PAPER:
+                return (chooseWeapon == ROCK ? 1 : -1);
+            case SCISSORS:
+                return (chooseWeapon == PAPER ? 1 : -1);
+        }
+        return 0;
+    }
 }

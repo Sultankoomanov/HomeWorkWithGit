@@ -7,7 +7,7 @@ public class Computer extends Gamers{
 
 
     @Override
-    public Weapons GameRules(Weapons weapons) {
+    public Weapons GameRules() {
         Random random = new Random();
         int rnd = random.nextInt(3)+1;
         if (rnd == 1) {
@@ -18,4 +18,5 @@ public class Computer extends Gamers{
             return Weapons.SCISSORS;
         } else return null;
     }
+
 }

@@ -8,8 +8,34 @@ public class Main {
 
     private static void Run() {
         User user = new User();
+        Computer computer = new Computer();
+        int userBalls = 0;
+        int compBalls = 0;
+        int gameCount = 0;
 
         printStart();
+        Weapons Weapons;
+
+        Weapons u = user.GameRules();
+        Weapons c = computer.GameRules();
+        System.out.println(u);
+        System.out.println(c);
+
+        int winner = u.force(c);
+        switch (winner) {
+            case 0:
+                System.out.println("Ничья!");
+                break;
+            case 1:
+                System.out.println("Победил ИГРОК!");
+                userBalls++;
+                break;
+            case 2:
+                System.out.println("Победил КОМПЬЮТЕР!");
+                compBalls++;
+                break;
+        }
+        gameCount++;
 
     }
 

@@ -6,7 +6,7 @@ public class User extends Gamers {
     private String name;
 
     @Override
-    public Weapons GameRules(Weapons weapons) {
+    public Weapons GameRules() {
         Scanner scanner = new Scanner(System.in);
         int choose = scanner.nextInt();
 
